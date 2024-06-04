@@ -1,4 +1,4 @@
-import Recap from './recap';
+import Infobox from './infobox';
 import Section from './section';
 import SectionTitle from './sectionTitle';
 
@@ -20,7 +20,7 @@ export default function Main() {
             type="subSection"
           />
         </div>
-        <Recap />
+        <Infobox />
       </article>
     </main>
   );

@@ -23,7 +23,9 @@ export default function Header() {
           >
             WIKIFY
           </span>
-          <span className="block text-sm font-serif">Digital introspector</span>
+          <span className="block text-sm font-serif">
+            Electronic introspector
+          </span>
         </div>
       </hgroup>
       <div className="col-start-5 text-sm">

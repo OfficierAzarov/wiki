@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import picture from '../../public/images/achab.jpg';
 
-export default function Recap() {
+export default function Infobox() {
   return (
     <aside className={'ml-4 bg-slate-50 border border-gray-300'}>
       <div className={'flex flex-col justify-center items-center'}>

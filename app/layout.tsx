@@ -14,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`p-8 h-screen bg-white ${noto.className} antialiased`}>
+      <body
+        className={`py-5 px-20 h-screen bg-white ${noto.className} antialiased text-base`}
+      >
         {children}
       </body>
     </html>

@@ -1,15 +1,25 @@
 import Recap from './recap';
+import Section from './section';
+import SectionTitle from './sectionTitle';
+
+import data from '../../mock.js';
 
 export default function Main() {
   return (
     <main>
-      <header className={'col-span-2'}>
-        <h1 className={'border-b border-gray-400 text-2xl font-serif'}>
-          Achabott Dust
-        </h1>
+      <header className={'col-span-2 p-4'}>
+        <SectionTitle text="Achabott Dust" type="mainSection" />
       </header>
       <article className={'grid grid-cols-3'}>
-        <section className={'col-span-2'}>blablabla</section>
+        <div className={'col-span-2'}>
+          <Section text={data.infobox} type="section" />
+          <Section title="Biographie" type="section" />
+          <Section
+            title="Enfance"
+            text={data.biography.youth}
+            type="subSection"
+          />
+        </div>
         <Recap />
       </article>
     </main>

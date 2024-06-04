@@ -14,9 +14,6 @@ const config: Config = {
       colors: {
         'wiki-blue': '#4C6099',
       },
-      fontSize: {
-        vsm: '0.9em',
-      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

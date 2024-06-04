@@ -1,6 +1,7 @@
 import Infobox from './infobox';
 import Section from './section';
-import SectionTitle from './sectionTitle';
+import SectionTitle from '../ui/section/sectionTitle';
+import Editor from './editor';
 
 import data from '../../mock.js';
 
@@ -12,13 +13,14 @@ export default function Main() {
       </header>
       <article className={'grid grid-cols-3'}>
         <div className={'col-span-2'}>
-          <Section text={data.infobox} type="section" />
+          <Editor />
+          {/* <Section text={data.infobox} type="section" />
           <Section title="Biographie" type="section" />
           <Section
             title="Enfance"
             text={data.biography.youth}
             type="subSection"
-          />
+          /> */}
         </div>
         <Infobox />
       </article>

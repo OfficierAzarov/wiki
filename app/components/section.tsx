@@ -1,4 +1,4 @@
-import SectionTitle from './sectionTitle';
+import SectionTitle from '../ui/section/sectionTitle';
 
 export default function Section({
   type,

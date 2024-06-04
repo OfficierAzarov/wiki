@@ -1,6 +1,6 @@
-import Header from './ui/header';
-import Main from './ui/main';
-import Nav from './ui/nav';
+import Header from './components/header';
+import Main from './components/main';
+import Nav from './components/nav';
 
 export default function Home() {
   return (

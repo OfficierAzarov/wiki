@@ -3,7 +3,7 @@ import picture from '../../public/images/achab.jpg';
 
 export default function Infobox() {
   return (
-    <aside className={'ml-4 bg-slate-50 border border-gray-300'}>
+    <aside className={'ml-10 bg-slate-50 border border-gray-300'}>
       <div className={'flex flex-col justify-center items-center'}>
         <div className={'w-full p-2 bg-wiki-blue text-center text-white'}>
           Achabott Dust

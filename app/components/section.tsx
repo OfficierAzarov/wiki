@@ -10,9 +10,13 @@ export default function Section({
   text?: string;
 }) {
   return (
-    <section className="p-4">
+    <section className="my-6">
       {title ? <SectionTitle text={title} type={type} /> : null}
-      {text ? <p>{text}</p> : null}
+      {text ? (
+        <>
+          <p>{text}</p>
+        </>
+      ) : null}
     </section>
   );
 }

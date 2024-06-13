@@ -1,6 +1,5 @@
 import Infobox from './infobox';
 import Section from './section';
-import Title from '../ui/section/title';
 
 import data from '../../mock.js';
 

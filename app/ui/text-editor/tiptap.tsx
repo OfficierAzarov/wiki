@@ -12,7 +12,7 @@ export default function Tiptap({
   initialContent: string | undefined;
   onChange: Function;
 }) {
-  const handleChange = (newContent: JSONContent) => {
+  const handleChange = (newContent: string) => {
     onChange(newContent);
   };
 
@@ -24,7 +24,6 @@ export default function Tiptap({
       },
     },
     onUpdate: ({ editor }) => {
-      // handleChange(editor.getJSON());
       handleChange(editor.getHTML());
     },
     onBlur: ({ editor }) => {

@@ -3,12 +3,13 @@
 import { useEditor, EditorContent, JSONContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { useEffect } from 'react';
+import Toolbar from './toolbar';
 
 export default function Tiptap({
   initialContent,
   onChange,
 }: {
-  initialContent: string;
+  initialContent: string | undefined;
   onChange: Function;
 }) {
   const handleChange = (newContent: JSONContent) => {
@@ -23,10 +24,11 @@ export default function Tiptap({
       },
     },
     onUpdate: ({ editor }) => {
-      handleChange(editor.getJSON());
+      // handleChange(editor.getJSON());
+      handleChange(editor.getHTML());
     },
     onBlur: ({ editor }) => {
-      handleChange(editor.getJSON());
+      handleChange(editor.getHTML());
     },
     content: initialContent,
   });
@@ -39,6 +41,7 @@ export default function Tiptap({
 
   return (
     <>
+      <Toolbar editor={editor} content={initialContent} />
       <EditorContent editor={editor} />
     </>
   );

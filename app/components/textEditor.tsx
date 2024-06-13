@@ -1,51 +1,47 @@
 'use client';
 
 import { useContext, useState } from 'react';
-import Tiptap from './tiptap';
-import { JSONContent } from '@tiptap/react';
+import Tiptap from '../ui/text-editor/tiptap';
+import { HTMLContent } from '@tiptap/react';
 
-import { saveEdits } from '../lib/buttonActions';
-import Button from '../ui/button';
-import { DisplayContext, WikiTextContext } from '../context/context';
+import { WikiTextContext } from '../context/context';
 
 export default function TextEditor({
+  type,
   initialContent,
-  isShown = false,
+  isEditorOpen,
+  closeEditor,
 }: {
+  type: 'title' | 'text';
   initialContent: string | undefined;
-  isShown: boolean | undefined;
+  isEditorOpen: boolean;
+  closeEditor: Function;
 }) {
   const wikiTextContext = useContext(WikiTextContext);
 
-  const [content, setContent] = useState<JSONContent>({});
+  const [content, setContent] = useState<HTMLContent>('');
 
-  const displayContext = useContext(DisplayContext);
-
-  const closeEditor = (): void => {
-    displayContext?.setIsEditorOpen(false);
-  };
-
-  const handleContentChange = (newContent: JSONContent) => {
+  const handleContentChange = (newContent: HTMLContent) => {
     setContent(newContent);
   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    wikiTextContext?.setWikiText(content);
+    if (type === 'title') wikiTextContext?.setWikiTitle(content);
+    if (type === 'text') wikiTextContext?.setWikiText(content);
     closeEditor();
   };
 
   return (
     <>
-      {isShown && (
+      {isEditorOpen && (
         <form onSubmit={handleSubmit} className="border border-gray-500">
           <Tiptap
             initialContent={initialContent}
-            onChange={(newContent: JSONContent) =>
+            onChange={(newContent: HTMLContent) =>
               handleContentChange(newContent)
             }
           />
-          <Button text="Save" action={saveEdits} isSubmitButton />
         </form>
       )}
     </>

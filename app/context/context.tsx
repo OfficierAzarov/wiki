@@ -1,20 +1,13 @@
-import { JSONContent } from '@tiptap/react';
+import { HTMLContent } from '@tiptap/react';
 import { createContext } from 'react';
 
 interface WikiTextContextType {
-  wikiText: JSONContent;
-  setWikiText: (state: JSONContent) => void;
+  wikiTitle: HTMLContent;
+  setWikiTitle: (state: HTMLContent) => void;
+  wikiText: HTMLContent;
+  setWikiText: (state: HTMLContent) => void;
 }
 
 export const WikiTextContext = createContext<WikiTextContextType | undefined>(
-  undefined
-);
-
-interface DisplayContextType {
-  isEditorOpen: boolean;
-  setIsEditorOpen: (isEditorOpen: boolean) => void;
-}
-
-export const DisplayContext = createContext<DisplayContextType | undefined>(
   undefined
 );

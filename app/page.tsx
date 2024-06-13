@@ -12,16 +12,18 @@ export default function Home() {
   const [wikiText, setWikiText] = useState<HTMLContent>('');
 
   return (
-    <WikiTextContext.Provider
-      value={{ wikiTitle, setWikiTitle, wikiText, setWikiText }}
-    >
+    <>
       <Header />
-      <div className={'grid grid-cols-5'}>
-        <Nav />
-        <div className={'col-span-4'}>
-          <Main />
+      <WikiTextContext.Provider
+        value={{ wikiTitle, setWikiTitle, wikiText, setWikiText }}
+      >
+        <div className={'grid grid-cols-5'}>
+          <Nav />
+          <div className={'col-span-4'}>
+            <Main />
+          </div>
         </div>
-      </div>
-    </WikiTextContext.Provider>
+      </WikiTextContext.Provider>
+    </>
   );
 }

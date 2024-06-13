@@ -59,7 +59,7 @@ export default function Section({
       {type === 'text' && (
         <>
           <section
-            className="flex pb-2 mb-4  border-b border-gray-500"
+            className="flex"
             style={{
               visibility: isEditorOpen ? 'hidden' : 'visible',
             }}

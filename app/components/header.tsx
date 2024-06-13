@@ -11,7 +11,7 @@ export default function Header() {
         <Link href="/">
           <Image
             src={logo}
-            alt="Achabott Dust in Malebolge."
+            alt="Wikifi logo"
             className="mr-5 pb-10 pt-1"
             width={40}
             height={40}

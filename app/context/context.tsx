@@ -10,6 +10,14 @@ interface WikiTextContextType {
   setWikiText: (state: HTMLContent) => void;
 }
 
-export const WikiTextContext = createContext<WikiTextContextType | undefined>(
-  undefined
-);
+const defaultContextValue: WikiTextContextType = {
+  wikiTitle: '',
+  setWikiTitle: () => {},
+  wikiRecap: '',
+  setWikiRecap: () => {},
+  wikiText: '',
+  setWikiText: () => {},
+};
+
+export const WikiTextContext =
+  createContext<WikiTextContextType>(defaultContextValue);

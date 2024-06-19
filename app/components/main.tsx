@@ -1,8 +1,6 @@
 import Infobox from './infobox';
 import Section from './section';
 
-import data from '../../mock.js';
-
 export default function Main() {
   return (
     <main className="px-6">

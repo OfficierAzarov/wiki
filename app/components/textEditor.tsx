@@ -12,7 +12,7 @@ export default function TextEditor({
   isEditorOpen,
   closeEditor,
 }: {
-  type: 'title' | 'text';
+  type: 'title' | 'recap' | 'text';
   initialContent: string | undefined;
   isEditorOpen: boolean;
   closeEditor: Function;
@@ -28,6 +28,7 @@ export default function TextEditor({
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (type === 'title') wikiTextContext?.setWikiTitle(content);
+    if (type === 'recap') wikiTextContext?.setWikiRecap(content);
     if (type === 'text') wikiTextContext?.setWikiText(content);
     closeEditor();
   };

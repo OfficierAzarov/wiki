@@ -9,7 +9,7 @@ export default function Section({
   type,
   text,
 }: {
-  type: 'title' | 'text';
+  type: 'title' | 'recap' | 'text';
   text: string;
 }) {
   const wikiTextContext = useContext(WikiTextContext);
@@ -47,12 +47,38 @@ export default function Section({
           <TextEditor
             isEditorOpen={isEditorOpen}
             initialContent={
-              wikiTextContext?.wikiTitle
-                ? wikiTextContext?.wikiTitle
-                : 'Commencez à écrire ici...'
+              wikiTextContext?.wikiTitle ? wikiTextContext?.wikiTitle : text
             }
             closeEditor={closeEditor}
             type="title"
+          />
+        </>
+      )}
+      {type === 'recap' && (
+        <>
+          <section
+            className="flex"
+            style={{
+              visibility: isEditorOpen ? 'hidden' : 'visible',
+            }}
+          >
+            <p
+              className="w-full"
+              dangerouslySetInnerHTML={{
+                __html: wikiTextContext?.wikiRecap
+                  ? wikiTextContext?.wikiRecap
+                  : text,
+              }}
+            ></p>
+            <Button text="Edit" action={openEditor} />
+          </section>
+          <TextEditor
+            isEditorOpen={isEditorOpen}
+            initialContent={
+              wikiTextContext?.wikiRecap ? wikiTextContext?.wikiRecap : text
+            }
+            closeEditor={closeEditor}
+            type="recap"
           />
         </>
       )}
@@ -65,6 +91,7 @@ export default function Section({
             }}
           >
             <p
+              className="w-full"
               dangerouslySetInnerHTML={{
                 __html: wikiTextContext?.wikiText
                   ? wikiTextContext?.wikiText
@@ -76,9 +103,7 @@ export default function Section({
           <TextEditor
             isEditorOpen={isEditorOpen}
             initialContent={
-              wikiTextContext?.wikiText
-                ? wikiTextContext?.wikiText
-                : 'Commencez à écrire ici...'
+              wikiTextContext?.wikiText ? wikiTextContext?.wikiText : text
             }
             closeEditor={closeEditor}
             type="text"

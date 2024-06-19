@@ -9,13 +9,21 @@ import { HTMLContent } from '@tiptap/react';
 
 export default function Home() {
   const [wikiTitle, setWikiTitle] = useState<HTMLContent>('');
+  const [wikiRecap, setWikiRecap] = useState<HTMLContent>('');
   const [wikiText, setWikiText] = useState<HTMLContent>('');
 
   return (
     <>
       <Header />
       <WikiTextContext.Provider
-        value={{ wikiTitle, setWikiTitle, wikiText, setWikiText }}
+        value={{
+          wikiTitle,
+          setWikiTitle,
+          wikiRecap,
+          setWikiRecap,
+          wikiText,
+          setWikiText,
+        }}
       >
         <div className={'grid grid-cols-5'}>
           <Nav />

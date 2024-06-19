@@ -4,6 +4,8 @@ import { createContext } from 'react';
 interface WikiTextContextType {
   wikiTitle: HTMLContent;
   setWikiTitle: (state: HTMLContent) => void;
+  wikiRecap: HTMLContent;
+  setWikiRecap: (state: HTMLContent) => void;
   wikiText: HTMLContent;
   setWikiText: (state: HTMLContent) => void;
 }

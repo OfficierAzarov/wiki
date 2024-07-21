@@ -32,10 +32,10 @@ export default function Section({
             style={{
               visibility: isEditorOpen ? 'hidden' : 'visible',
             }}
-            className="flex pb-2 mb-4 border-b border-gray-500"
+            className="pb-2 mb-4 border-b border-gray-500"
           >
             <div
-              className={`w-full`}
+              className="inline"
               dangerouslySetInnerHTML={{
                 __html: wikiTextContext?.wikiTitle
                   ? wikiTextContext?.wikiTitle
@@ -57,13 +57,13 @@ export default function Section({
       {type === 'recap' && (
         <>
           <section
-            className="flex"
+            className="my-4"
             style={{
               visibility: isEditorOpen ? 'hidden' : 'visible',
             }}
           >
             <p
-              className="w-full"
+              className="inline"
               dangerouslySetInnerHTML={{
                 __html: wikiTextContext?.wikiRecap
                   ? wikiTextContext?.wikiRecap
@@ -85,13 +85,13 @@ export default function Section({
       {type === 'text' && (
         <>
           <section
-            className="flex"
+            className="my-4"
             style={{
               visibility: isEditorOpen ? 'hidden' : 'visible',
             }}
           >
             <div
-              className="w-full"
+              className="inline"
               dangerouslySetInnerHTML={{
                 __html: wikiTextContext?.wikiText
                   ? wikiTextContext?.wikiText

@@ -16,6 +16,10 @@
   }
 }
 
+h1, .tiptap h1, h2, .tiptap h2 {
+  display: inline;
+}
+
 h1, .tiptap h1 {
   font-size: 2em;
   font-family: 'linuxLibertine';
@@ -28,6 +32,20 @@ h2, .tiptap h2 {
   border-bottom: 1px solid gray;
   margin: 1em 0 0.5em 0;
   padding-bottom: 0.5em;
+}
+
+ul, .tiptap ul {
+  margin: 1.5em;
+  list-style-type: disc;
+}
+
+ol, .tiptap ol {
+  margin: 1.5em;
+  list-style: auto;
+}
+
+p, .tiptap p {
+  margin: 1.5em 0;
 }
 
 a {

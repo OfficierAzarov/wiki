@@ -36,7 +36,10 @@ export default function TextEditor({
   return (
     <>
       {isEditorOpen && (
-        <form onSubmit={handleSubmit} className="border border-gray-500">
+        <form
+          onSubmit={handleSubmit}
+          className="border border-gray-500 rounded-t-md"
+        >
           <Tiptap
             initialContent={initialContent}
             onChange={(newContent: HTMLContent) =>

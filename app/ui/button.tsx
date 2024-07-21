@@ -13,7 +13,9 @@ export default function Button({
 }) {
   return (
     <button
-      className={'ml-2 inline-block align-middle font-sans text-xs'}
+      className={
+        'ml-2 inline-block align-middle font-sans text-xs hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
+      }
       onClick={action ? action : undefined}
       type={isSubmitButton ? 'submit' : undefined}
     >

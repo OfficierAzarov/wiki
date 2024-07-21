@@ -10,9 +10,7 @@ export default function Main() {
       <article className={'grid grid-cols-3'}>
         <div className={'col-span-2'}>
           <Section type="recap" text="A few lines to recap..." />
-        </div>
-        <div className={'col-span-2'}>
-          <Section type="text" text="Start writing..." />
+          <Section type="text" text="<h2>Start writing...</h2>" />
         </div>
         <Infobox />
       </article>

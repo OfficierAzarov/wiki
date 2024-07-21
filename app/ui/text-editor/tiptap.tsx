@@ -4,6 +4,7 @@ import { useEditor, EditorContent, JSONContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { useEffect } from 'react';
 import Toolbar from './toolbar';
+import Link from '@tiptap/extension-link';
 
 export default function Tiptap({
   initialContent,
@@ -17,7 +18,13 @@ export default function Tiptap({
   };
 
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [
+      StarterKit,
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+      }),
+    ],
     editorProps: {
       attributes: {
         class: 'p-4',
@@ -40,7 +47,7 @@ export default function Tiptap({
 
   return (
     <>
-      <Toolbar editor={editor} content={initialContent} />
+      <Toolbar editor={editor} />
       <EditorContent editor={editor} />
     </>
   );

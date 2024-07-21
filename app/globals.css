@@ -16,6 +16,12 @@
   }
 }
 
+h1, .tiptap h1 {
+  font-size: 2em;
+  font-family: 'linuxLibertine';
+  margin: 1em 0 0.5em 0;
+}
+
 h2, .tiptap h2 {
   font-size: 1.5em;
   font-family: 'linuxLibertine';

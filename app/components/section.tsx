@@ -34,14 +34,14 @@ export default function Section({
             }}
             className="flex pb-2 mb-4 border-b border-gray-500"
           >
-            <h1
-              className={`text-3xl font-serif`}
+            <div
+              className={`w-full`}
               dangerouslySetInnerHTML={{
                 __html: wikiTextContext?.wikiTitle
                   ? wikiTextContext?.wikiTitle
                   : text,
               }}
-            ></h1>
+            ></div>
             <Button text="Edit" action={openEditor} />
           </hgroup>
           <TextEditor
@@ -90,14 +90,14 @@ export default function Section({
               visibility: isEditorOpen ? 'hidden' : 'visible',
             }}
           >
-            <p
+            <div
               className="w-full"
               dangerouslySetInnerHTML={{
                 __html: wikiTextContext?.wikiText
                   ? wikiTextContext?.wikiText
                   : text,
               }}
-            ></p>
+            ></div>
             <Button text="Edit" action={openEditor} />
           </section>
           <TextEditor

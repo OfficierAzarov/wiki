@@ -10,7 +10,7 @@ export default function Tiptap({
   initialContent,
   onChange,
 }: {
-  initialContent: string | undefined;
+  initialContent: string | TrustedHTML;
   onChange: Function;
 }) {
   const handleChange = (newContent: string) => {

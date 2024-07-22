@@ -13,7 +13,7 @@ export default function TextEditor({
   closeEditor,
 }: {
   type: 'title' | 'recap' | 'text';
-  initialContent: string | undefined;
+  initialContent: string | TrustedHTML;
   isEditorOpen: boolean;
   closeEditor: Function;
 }) {

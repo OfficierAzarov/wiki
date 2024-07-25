@@ -8,8 +8,8 @@ export default function Infobox() {
   const wikiTextContext = useContext(WikiTextContext);
 
   return (
-    <aside className={'ml-10 bg-slate-50 border border-gray-300'}>
-      <div className={'flex flex-col justify-center items-center'}>
+    <aside className="ml-10 bg-slate-50 border border-gray-300 px-3">
+      <div className="flex flex-col justify-center items-center border-b border-wiki-blue-light py-2 my-2">
         <div className={'w-full p-2 bg-wiki-blue text-center text-white'}>
           {convertHtmlToString(wikiTextContext?.wikiTitle)}
         </div>
@@ -24,8 +24,14 @@ export default function Infobox() {
           Achabott Dust à Malebolge.
         </figcaption>
       </div>
-      <div className={'bg-cyan-300'}>Achabott Dust</div>
-      <div className={'bg-cyan-700'}>Achabott Dust</div>
+      <table className="">
+        <tbody>
+          <tr>
+            <th className="font-bold">Nom de naissance</th>
+            <td className="ml-5">Achabott Dust</td>
+          </tr>
+        </tbody>
+      </table>
     </aside>
   );
 }

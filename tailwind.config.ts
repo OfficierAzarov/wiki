@@ -13,6 +13,7 @@ const config: Config = {
       },
       colors: {
         'wiki-blue': '#4C6099',
+        'wiki-blue-light': '#7090E0',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

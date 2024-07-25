@@ -1,6 +1,6 @@
 'use client';
 
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import TextEditor from '@/app/components/textEditor';
 import Button from '../ui/button';
 import { WikiTextContext } from '@/app/context/context';
@@ -11,11 +11,12 @@ export default function Section({
   text,
 }: {
   type: SectionType;
-  text: string;
+  text: string | TrustedHTML;
 }) {
   const wikiTextContext = useContext(WikiTextContext);
 
   const [isEditorOpen, setIsEditorOpen] = useState(false);
+  const [initialContent, setInitialContent] = useState(text);
 
   const openEditor = (): void => {
     setIsEditorOpen(true);
@@ -25,15 +26,13 @@ export default function Section({
     setIsEditorOpen(false);
   };
 
-  const chooseText = (type: SectionType): string | TrustedHTML => {
-    if (type === 'title') {
-      return wikiTextContext?.wikiTitle ? wikiTextContext?.wikiTitle : text;
+  useEffect(() => {
+    if (type === 'title' && wikiTextContext?.wikiTitle) {
+      setInitialContent(wikiTextContext.wikiTitle);
+    } else if (type === 'text' && wikiTextContext?.wikiText) {
+      setInitialContent(wikiTextContext.wikiText);
     }
-    if (type === 'text') {
-      return wikiTextContext?.wikiText ? wikiTextContext?.wikiText : text;
-    }
-    return text;
-  };
+  }, [type, wikiTextContext]);
 
   return (
     <>
@@ -48,14 +47,14 @@ export default function Section({
             <div
               className="inline-block"
               dangerouslySetInnerHTML={{
-                __html: chooseText(SectionType.Title),
+                __html: initialContent,
               }}
             ></div>
             <Button text="Edit" action={openEditor} />
           </hgroup>
           <TextEditor
             isEditorOpen={isEditorOpen}
-            initialContent={chooseText(SectionType.Title)}
+            initialContent={initialContent}
             closeEditor={closeEditor}
             type="title"
           />
@@ -72,14 +71,14 @@ export default function Section({
             <div
               className="inline-block col-span-7 text-justify"
               dangerouslySetInnerHTML={{
-                __html: chooseText(SectionType.Text),
+                __html: initialContent,
               }}
             ></div>
             <Button text="Edit" action={openEditor} />
           </section>
           <TextEditor
             isEditorOpen={isEditorOpen}
-            initialContent={chooseText(SectionType.Text)}
+            initialContent={initialContent}
             closeEditor={closeEditor}
             type="text"
           />

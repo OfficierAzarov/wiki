@@ -4,14 +4,15 @@ import { useContext, useState, useEffect } from 'react';
 import TextEditor from '@/app/components/textEditor';
 import Button from '../ui/button';
 import { WikiTextContext } from '@/app/context/context';
-import { SectionType } from '../types/SectionType';
+import { SectionType } from '../types/domain';
+import { sanitize } from '../lib/helpers/html-processing/sanitize';
 
 export default function Section({
   type,
   text,
 }: {
   type: SectionType;
-  text: string | TrustedHTML;
+  text: string;
 }) {
   const wikiTextContext = useContext(WikiTextContext);
 
@@ -47,7 +48,7 @@ export default function Section({
             <div
               className="inline-block"
               dangerouslySetInnerHTML={{
-                __html: initialContent,
+                __html: sanitize(initialContent),
               }}
             ></div>
             <Button text="Edit" action={openEditor} />
@@ -71,7 +72,7 @@ export default function Section({
             <div
               className="inline-block col-span-7 text-justify"
               dangerouslySetInnerHTML={{
-                __html: initialContent,
+                __html: sanitize(initialContent),
               }}
             ></div>
             <Button text="Edit" action={openEditor} />

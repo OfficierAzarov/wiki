@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Image from 'next/image';
 import picture from '../../public/images/achab.jpg';
 import { WikiTextContext } from '../context/context';
-import { convertHtmlToString } from '../lib/helpers/htmlToText';
+import { convertHtmlToString } from '../lib/helpers/html-processing/htmlToText';
 
 export default function Infobox() {
   const wikiTextContext = useContext(WikiTextContext);

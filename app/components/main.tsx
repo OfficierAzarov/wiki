@@ -2,7 +2,7 @@ import Infobox from './infobox';
 import Section from './section';
 import dynamic from 'next/dynamic';
 
-import { SectionType } from '../types/SectionType';
+import { SectionType } from '../types/domain';
 
 export default function Main() {
   return (

@@ -16,8 +16,8 @@ import { saveEdits } from '@/app/lib/buttonActions';
 
 export default function Toolbar({ editor }: { editor: Editor | null }) {
   const setLink = useCallback(() => {
-    const previousUrl = editor.getAttributes('link').href;
-    const url = window.prompt('URL', previousUrl);
+    const previousUrl = editor?.getAttributes('link').href;
+    const url = window.prompt('URL', previousUrl ?? '');
 
     // cancelled
     if (url === null) {
@@ -26,13 +26,18 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
 
     // empty
     if (url === '') {
-      editor.chain().focus().extendMarkRange('link').unsetLink().run();
+      editor?.chain().focus().extendMarkRange('link').unsetLink().run();
 
       return;
     }
 
     // update link
-    editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+    editor
+      ?.chain()
+      .focus()
+      .extendMarkRange('link')
+      .setLink({ href: url })
+      .run();
   }, [editor]);
 
   if (!editor) {
@@ -48,10 +53,10 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
         <button
           onClick={e => {
             e.preventDefault();
-            editor.chain().focus().undo().run();
+            editor?.chain().focus().undo().run();
           }}
           className={
-            editor.isActive('undo')
+            editor?.isActive('undo')
               ? 'bg-gray-700 text-white p-2 rounded-lg'
               : 'text-gray-700 hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
           }
@@ -61,10 +66,10 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
         <button
           onClick={e => {
             e.preventDefault();
-            editor.chain().focus().redo().run();
+            editor?.chain().focus().redo().run();
           }}
           className={
-            editor.isActive('redo')
+            editor?.isActive('redo')
               ? 'bg-gray-700 text-white p-2 rounded-lg'
               : 'text-gray-700 hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
           }
@@ -74,10 +79,10 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
         <button
           onClick={e => {
             e.preventDefault();
-            editor.chain().focus().toggleHeading({ level: 2 }).run();
+            editor?.chain().focus().toggleHeading({ level: 2 }).run();
           }}
           className={
-            editor.isActive('heading', { level: 2 })
+            editor?.isActive('heading', { level: 2 })
               ? 'bg-gray-700 text-white p-2 rounded-lg'
               : 'text-gray-700 hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
           }
@@ -87,10 +92,10 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
         <button
           onClick={e => {
             e.preventDefault();
-            editor.chain().focus().toggleBold().run();
+            editor?.chain().focus().toggleBold().run();
           }}
           className={
-            editor.isActive('bold')
+            editor?.isActive('bold')
               ? 'bg-gray-700 text-white p-2 rounded-lg'
               : 'text-gray-700 hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
           }
@@ -100,10 +105,10 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
         <button
           onClick={e => {
             e.preventDefault();
-            editor.chain().focus().toggleItalic().run();
+            editor?.chain().focus().toggleItalic().run();
           }}
           className={
-            editor.isActive('italic')
+            editor?.isActive('italic')
               ? 'bg-gray-700 text-white p-2 rounded-lg'
               : 'text-gray-700 hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
           }
@@ -113,10 +118,10 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
         <button
           onClick={e => {
             e.preventDefault();
-            editor.chain().focus().toggleBulletList().run();
+            editor?.chain().focus().toggleBulletList().run();
           }}
           className={
-            editor.isActive('bulletList')
+            editor?.isActive('bulletList')
               ? 'bg-gray-700 text-white p-2 rounded-lg'
               : 'text-gray-700 hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
           }
@@ -126,10 +131,10 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
         <button
           onClick={e => {
             e.preventDefault();
-            editor.chain().focus().toggleOrderedList().run();
+            editor?.chain().focus().toggleOrderedList().run();
           }}
           className={
-            editor.isActive('orderedList')
+            editor?.isActive('orderedList')
               ? 'bg-gray-700 text-white p-2 rounded-lg'
               : 'text-gray-700 hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
           }
@@ -139,7 +144,7 @@ export default function Toolbar({ editor }: { editor: Editor | null }) {
         <button
           onClick={setLink}
           className={
-            editor.isActive('orderedList')
+            editor?.isActive('orderedList')
               ? 'bg-gray-700 text-white p-2 rounded-lg'
               : 'text-gray-700 hover:bg-gray-700 hover:text-white p-1 hover:rounded-lg'
           }
